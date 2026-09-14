@@ -184,35 +184,38 @@
 				<version>3.4.0</version> <!-- or latest stable -->
 			</plugin>
 		<!-- CODE COVERAGE -->
- 		    <plugin>
- 		        <groupId>org.jacoco</groupId>
- 		        <artifactId>jacoco-maven-plugin</artifactId>
- 		        <version>0.8.8</version>
- 		        <executions>
- 		            <execution>
- 		                <id>jacoco-initialize</id>
- 		                <phase>process-resources</phase>
- 		                <goals>
- 		                    <goal>prepare-agent</goal>
- 		                </goals>
- 		            </execution>
- 		            <execution>
- 		                <id>jacoco-site</id>
- 		                <phase>post-integration-test</phase>
- 		                <goals>
- 		                    <goal>report</goal>
- 		                </goals>
- 		            </execution>
- 		        </executions>
- 		</plugin>
+ 	           <!-- JaCoCo plugin for code coverage (added here) -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
 
-			<!-- SonarQube Plugin -->
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- SonarQube plugin -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.11.0.3922</version>
+                <version>4.0.0.4121</version>
             </plugin>
-		
         </plugins>
+
     </build>
+
 </project>
