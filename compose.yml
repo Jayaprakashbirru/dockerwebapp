@@ -1,23 +1,19 @@
 version: "3.9"
 
 services:
-  devopsdb:
-    image: shaikmustafa/deepika:db
-    ports:
-      - "3306:3306"
+  dockerapp:
+    image: ./Docker-db
     deploy:
       replicas: 1
     networks:
       - mynetwork
 
   application:
-    image: shaikmustafa/deepika:app
+    build: ./Docker-app
     ports:
-      - "1111:8080"
+      - "8080:8080"
     deploy:
-      replicas: 3
-    depends_on:
-      - devopsdb
+      replicas: 1
     networks:
       - mynetwork
 
