@@ -4,7 +4,7 @@ services:
   devopsdb:
     image: jayaprakashdevops/dockerwebapp:appimage
     ports:
-      - "1111:8080"
+      - "3306:3306"
     deploy:
       replicas: 1
     networks:
@@ -13,7 +13,7 @@ services:
   application:
     image: jayaprakashdevops/dockerwebapp:dbimage
     ports:
-      - "1234:3306"
+      - "1111:8080"
     deploy:
       replicas: 3
     depends_on:
