@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   devopsdb:
-    image: jayaprakashdevops/dockerwebapp:appimage
+    image: jayaprakashdevops/dockerwebapp:dbimage
     ports:
       - "3306:3306"
     deploy:
@@ -11,7 +11,7 @@ services:
       - mynetwork
 
   application:
-    image: jayaprakashdevops/dockerwebapp:dbimage
+    image: jayaprakashdevops/dockerwebapp:appimage
     ports:
       - "1111:8080"
     deploy:
